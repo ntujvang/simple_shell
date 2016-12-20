@@ -15,7 +15,7 @@ int execute(const char *command, char **args)
 		return (1);
 	child = fork();
 	if (child < 0)
-		perror("Le Conch");
+		perror("Speak to Conch");
 	else if (child == 0)
 	{
 		execve(command, args, environ);
@@ -33,7 +33,6 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 {
 	char *temp;
 	int i;
-
 
 	if (buffer[0] == '/')
 	{
@@ -82,8 +81,7 @@ char **tokenize(char *str)
 		exit(EXIT_FAILURE);
 	}
 	/* (" \n" was the primary reason why we couldn't
-	   get anyhting to print Sam, because we were not getting rid of
-	   new lines. Might want to check for tabs and returns too maybe? */
+	   get anyhting to print */
 	hold = strtok(str, " \n");
 	while (hold != NULL)
 	{
@@ -101,8 +99,6 @@ char *_getline(void)
 	ssize_t buffer, hold;
 
 	buffer = 0;
-	/* hold is made for EOF testing, but that might be
-	   the wrong way to do it */
 	hold = getline(&str, &buffer, stdin);
 	if (hold == EOF)
 	{
@@ -124,7 +120,7 @@ int main(int arg, char *argv[])
 	status = 1;
 	while (status)
 	{
-		write(STDOUT_FILENO, "Le Conch: ", 10);
+		write(STDOUT_FILENO, "Speak to Conch: ", 10);
 		/* created this thing it's own function because of
 		   data type errors */
 		str = _getline();
