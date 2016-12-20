@@ -15,7 +15,7 @@ int execute(const char *command, char **args)
 		return (1);
 	child = fork();
 	if (child < 0)
-		perror("Speak to Conch");
+		perror("Conch");
 	else if (child == 0)
 	{
 		execve(command, args, environ);
@@ -120,7 +120,7 @@ int main(int arg, char *argv[])
 	status = 1;
 	while (status)
 	{
-		write(STDOUT_FILENO, "Speak to Conch: ", 10);
+		write(STDOUT_FILENO, "Conch: ", 10);
 		/* created this thing it's own function because of
 		   data type errors */
 		str = _getline();
