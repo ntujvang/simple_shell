@@ -117,19 +117,34 @@ int main(int arg, char *argv[])
 
 	head = NULL;
 	link_lister(&head);
-	status = 1;
-	while (status)
+
+	while (1)
 	{
-		write(STDOUT_FILENO, "Conch: ", 10);
+		status = 0;
+		_puts("Conch: ");
 		/* created this thing it's own function because of
 		   data type errors */
 		str = _getline();
 		args = tokenize(str);
 		/* this seems to be neccessary in order to keep
 		   the loop running */
-		status = check_me(str, head, args);
+		status = builtinchecker(str, args);
+		if (status == 0)
+				  status = check_me(str, head, args);
+		if (status == 0)
+			_puts("Command not found\n")
 		free(args);
 		free(str);
 	}
 	return (0);
+}
+
+int builtinchecker(char *str, char **args)
+{
+	loop through builtin names:
+		if (str matches name of a builtin,
+		       run the builtin function
+		       return (1);
+	if it doesn't match any builtin name'
+		      return (0);
 }

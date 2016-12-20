@@ -5,7 +5,8 @@ typedef struct commands
 	char *str;
 	struct commands *next;
 }cmd_finder;
-
+void _puts(char *str);
+int _putchar(char c);
 char *_getenv(const char *name);
 int _strcmp(const char *s1, char *s2);
 char *printenv(char **environ);
