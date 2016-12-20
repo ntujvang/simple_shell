@@ -13,7 +13,6 @@ int execute(const char *command, char **args)
 
 	if (args[0] == NULL)
 		return (1);
-	/* so far this work works, but it feels too short to be true */
 	child = fork();
 	if (child < 0)
 		perror("Le Conch");
@@ -30,8 +29,6 @@ int execute(const char *command, char **args)
 	return (1);
 }
 
-/* newest addition that checks against the path, but it's not working
-   correctly */
 int check_me(char *buffer, cmd_finder *h, char **args)
 {
 	char *temp;
