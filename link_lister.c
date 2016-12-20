@@ -34,6 +34,7 @@ int link_lister(cmd_finder **head)
 	/* everything below this line creates a linked list of PATH
 	   use the _getenv you made Sam */
 	*head = NULL;
+
 	hold = strtok(env, ":");
 	while (hold != '\0')
 	{
