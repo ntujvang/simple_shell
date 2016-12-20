@@ -3,20 +3,23 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include "shell.h"
 extern char **environ;
 
-int execute(char **args)
+int execute(const char *command, char **args)
 {
 	pid_t child;
 	int status;
 
+	if (args[0] == NULL)
+		return (1);
 	/* so far this work works, but it feels too short to be true */
 	child = fork();
 	if (child < 0)
 		perror("Le Conch");
 	else if (child == 0)
 	{
-		if (execve(args[0], args, environ) == -1)
+		if (execve(command, args, environ) == -1)
 			perror("Error");
 	}
 	else
@@ -26,6 +29,26 @@ int execute(char **args)
 	   succeeds it also returns a positive # */
 	return (1);
 }
+int check_me(char *buffer, cmd_finder *h, char **args)
+{
+	char *temp;
+	int i;
+
+	i = 0;
+	temp = malloc(1024);
+	while (h != NULL)
+	{
+		strcpy(temp, h->str);
+		strcat(temp, "/");
+		strcat(temp, buffer);
+		h = h->next;
+		if (access(temp, X_OK) == 0)
+			i = execute(temp, args);
+	}
+	free(temp);
+	return (1);
+}
+
 
 char **tokenize(char *str)
 {
@@ -77,18 +100,23 @@ int main(int arg, char *argv[])
 	char *str;
 	char **args;
 	int status;
+	cmd_finder *head;
 
+	head = NULL;
+	link_lister(&head);
 	status = 1;
 	while (status)
 	{
-		printf("Le Conch: ");
+		write(STDOUT_FILENO, "Le Conch: ", 10);
 		/* created this thing it's own function because of
 		   data type errors */
 		str = _getline();
 		args = tokenize(str);
 		/* this seems to be neccessary in order to keep
 		   the loop running */
-		status = execute(args);
+		status = check_me(str, head, args);
+		free(args);
+		free(str);
 	}
 	return (0);
 }
