@@ -13,4 +13,5 @@ char *printenv(char **environ);
 int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
 int link_lister(cmd_finder **head);
+void exitFunction(int status, char *str, char **args);
 #endif

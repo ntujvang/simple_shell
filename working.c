@@ -130,9 +130,9 @@ int main(int arg, char *argv[])
 		   the loop running */
 		status = builtinchecker(str, args);
 		if (status == 0)
-				  status = check_me(str, head, args);
+			status = check_me(str, head, args);
 		if (status == 0)
-			_puts("Command not found\n")
+			_puts("Command not found\n");
 		free(args);
 		free(str);
 	}
@@ -141,10 +141,14 @@ int main(int arg, char *argv[])
 
 int builtinchecker(char *str, char **args)
 {
-	loop through builtin names:
-		if (str matches name of a builtin,
-		       run the builtin function
-		       return (1);
-	if it doesn't match any builtin name'
-		      return (0);
+	if (_strcmp(str, "exit") == 0)
+		exitFunction(0, str, args);
+	return (0);
+}
+
+void exitFunction(int status, char *str, char **args)
+{
+	free(args);
+	free(str);
+	_exit(status);
 }
