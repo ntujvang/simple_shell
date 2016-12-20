@@ -1,39 +1,39 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "simple.h"
+#include "shell.h"
 extern char **environ;
 
 char *_getenv(const char *name)
 {
-	char *env;
+	char *s;
 	int i;
 
 	i = 0;
-	while (environ[i] != NULL)
+	s = environ[0];
+	while (s != NULL)
 	{
-		env = strtok(environ[i], "=");
-		if (strcmp(env, name) == 0)
+		if (_strcmp(name, s) == 0)
 		{
-			env = strtok(NULL, "=");
-			return(env);
+			return(s);
 		}
 		i++;
+		s = environ[i];
 	}
 	return (NULL);
 }
 
-int main(void)
+int link_lister(cmd_finder **head)
 {
 	char *env, *hold;
 	unsigned int i;
-	cmd_finder *head, *list;
+	cmd_finder *list;
 
 	env = _getenv("PATH");
 	i = 0;
 	/* everything below this line creates a linked list of PATH
 	   use the _getenv you made Sam */
-	head = NULL;
+	*head = NULL;
 	hold = strtok(env, ":");
 	while (hold != '\0')
 	{
@@ -41,11 +41,27 @@ int main(void)
 		if (list == NULL)
 			return (-1);
 		list->str = hold;
-		list->next = head;
-		head = list;
-		printf("%s\n", list->str);
+		list->next = *head;
+		*head = list;
 		hold = strtok(NULL, ":");
 		i++;
 	}
 	return (0);
+}
+
+int _strcmp(const char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		if (s1[i] > s2[i])
+			return (s1[i] - s2[i]);
+		if (s1[i] < s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	if (s1[i] == '\0' && s2[i] == '=')
+		return (0);
 }
