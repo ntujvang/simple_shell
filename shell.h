@@ -1,5 +1,15 @@
-char *_getenv(const char *name, char **environ);
+#ifndef SHELL_H
+#define SHELL_H
+typedef struct commands
+{
+	char *str;
+	struct commands *next;
+}cmd_finder;
+
+char *_getenv(const char *name);
 int _strcmp(const char *s1, char *s2);
 char *printenv(char **environ);
 int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
+int link_lister(cmd_finder **head);
+#endif
