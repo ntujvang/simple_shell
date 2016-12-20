@@ -41,7 +41,7 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 			i = execute(buffer, args);
 			return (1);
 		}
-		return (1);
+		return (0);
 	}
 
 	i = 0;
@@ -61,7 +61,7 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 	}
 	free(temp);
 	if (h == NULL)
-		return (1);
+		return (0);
 	return (1);
 }
 
