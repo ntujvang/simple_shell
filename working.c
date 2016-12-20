@@ -29,6 +29,9 @@ int execute(const char *command, char **args)
 	   succeeds it also returns a positive # */
 	return (1);
 }
+
+/* newest addition that checks against the path, but it's not working
+   correctly */
 int check_me(char *buffer, cmd_finder *h, char **args)
 {
 	char *temp;
@@ -38,6 +41,7 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 	temp = malloc(1024);
 	while (h != NULL)
 	{
+		/* gotta change these str functions */
 		strcpy(temp, h->str);
 		strcat(temp, "/");
 		strcat(temp, buffer);
