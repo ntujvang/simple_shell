@@ -24,7 +24,7 @@ int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
 int link_lister(cmd_finder **head);
 int builtinchecker(char *str, char **args);
-void exitFunction(int status, char *str, char **args);
+void exitFunction(char *str, char **args);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 #endif
