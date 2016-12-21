@@ -19,7 +19,6 @@ int check_me(char *buffer, cmd_finder *h, char **args)
         temp = malloc(100);
         while (h != NULL)
         {
-                /* gotta change these str functions */
                 _strcpy(temp, h->str);
                 _strcat(temp, "/");
                 _strcat(temp, buffer);
