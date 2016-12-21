@@ -6,9 +6,9 @@ Conch [command file [argument ...]]
 .SH DESCRIPTION
 Conch shell is a command programming language that executes commands read from a terminal or a file. It can run basic commands from the PATH,  use their full path filenames, and has built in functions.
 .SH Builtins
-.LP exit
+.IP exit
 Exit current process and free up memory.
-.LP env
+.IP env
 Print out all environment variables.
 .SH SEE ALSO
 .I sh
