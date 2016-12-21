@@ -12,7 +12,6 @@ int main (int argc, char *argv[], char *envp[])
         else
                 printenv(envp);
 }
-/**End of I don't know where to put this*/
 
 char *_getenv(const char *name, char **environ)
 {
