@@ -1,9 +1,9 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "shell.h"
-extern char **environ;
-
+/**
+ * _getenv - gets a value
+ * @name: the variable we want
+ * Return: NULL
+ */
 char *_getenv(const char *name)
 {
 	char *s;
@@ -15,28 +15,38 @@ char *_getenv(const char *name)
 	{
 		if (_strcmp(name, s) == 0)
 		{
-			return(s);
+			return (s);
 		}
 		i++;
 		s = environ[i];
 	}
 	return (NULL);
 }
+/**
+ * printenv - prints value
+ * @environ: value printing
+ * Return: NULL
+ */
 char *printenv(char **environ)
 {
-        char *s;
-        int i;
+	char *s;
+	int i;
 
-        i = 0;
-        s = environ[0];
-        while (s != NULL)
-        {
+	i = 0;
+	s = environ[0];
+	while (s != NULL)
+	{
 		_puts(s);
-                i++;
-                s = environ[i];
-        }
-        return (NULL);
+		i++;
+		s = environ[i];
+	}
+	return (NULL);
 }
+/**
+ * link_lister - function to create a linked list
+ * @head: start of list
+ * Return: 0
+ */
 int link_lister(cmd_finder **head)
 {
 	char *env, *hold;
@@ -45,8 +55,8 @@ int link_lister(cmd_finder **head)
 
 	env = _getenv("PATH");
 	i = 0;
-	/* everything below this line creates a linked list of PATH
-	   use the _getenv you made Sam */
+	/* everything below this line creates a linked list of PATH */
+	   /*   use the _getenv you made Sam */
 	*head = NULL;
 
 	hold = strtok(env, ":");
@@ -61,23 +71,5 @@ int link_lister(cmd_finder **head)
 		hold = strtok(NULL, ":");
 		i++;
 	}
-	return (0);
-}
-
-int _strcmp(const char *s1, char *s2)
-{
-	int i;
-
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		if (s1[i] > s2[i])
-			return (s1[i] - s2[i]);
-		if (s1[i] < s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	if (s1[i] == '\0' && s2[i] == '=')
-		return (0);
 	return (0);
 }

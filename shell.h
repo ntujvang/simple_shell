@@ -6,11 +6,16 @@
 #include <string.h>
 #include <sys/wait.h>
 extern char **environ;
+/**
+ * struct commands - structure of link list
+ * @str: the string value
+ * @next: links to the next structure
+ */
 typedef struct commands
 {
 	char *str;
 	struct commands *next;
-}cmd_finder;
+} cmd_finder;
 int execute(const char *command, char **args);
 int check_me(char *buffer, cmd_finder *h, char **args);
 char **tokenize(char *str);
