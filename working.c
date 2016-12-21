@@ -103,7 +103,7 @@ char *_getline(void)
 	return (str);
 } */
 
-int main(int arg, char *argv[])
+int main(__attribute__ ((unused)) int arg, __attribute__ ((unused)) char *argv[])
 {
 	char *str;
 	char **args;
