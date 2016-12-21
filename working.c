@@ -23,9 +23,6 @@ int execute(const char *command, char **args)
 	}
 	else
 		wait(&status);
-	/* we want to return 1 so that it loops infinitly, although
-	   it somehow works if we don't have return too because when fork
-	   succeeds it also returns a positive # */
 	return (1);
 }
 
@@ -80,8 +77,6 @@ char **tokenize(char *str)
 		perror("malloc");
 		exit(EXIT_FAILURE);
 	}
-	/* (" \n" was the primary reason why we couldn't
-	   get anyhting to print */
 	hold = strtok(str, " \n");
 	while (hold != NULL)
 	{
