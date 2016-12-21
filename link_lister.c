@@ -22,7 +22,21 @@ char *_getenv(const char *name)
 	}
 	return (NULL);
 }
+char *printenv(char **environ)
+{
+        char *s;
+        int i;
 
+        i = 0;
+        s = environ[0];
+        while (s != NULL)
+        {
+		_puts("%s\n", s);
+                i++;
+                s = environ[i];
+        }
+        return (NULL);
+}
 int link_lister(cmd_finder **head)
 {
 	char *env, *hold;
