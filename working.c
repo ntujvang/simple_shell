@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include "shell.h"
 extern char **environ;
-
+/*
 int execute(const char *command, char **args)
 {
 	pid_t child;
@@ -19,13 +19,13 @@ int execute(const char *command, char **args)
 	else if (child == 0)
 	{
 		execve(command, args, environ);
-		perror("Error"); /* child should never get past execve */
+		perror("Error");  child should never get past execve
 	}
 	else
 		wait(&status);
 	return (1);
-}
-
+} */
+/*
 int check_me(char *buffer, cmd_finder *h, char **args)
 {
 	char *temp;
@@ -45,7 +45,7 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 	temp = malloc(100);
 	while (h != NULL)
 	{
-		/* gotta change these str functions */
+		 gotta change these str functions 
 		strcpy(temp, h->str);
 		strcat(temp, "/");
 		strcat(temp, buffer);
@@ -60,9 +60,9 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 	if (h == NULL)
 		return (0);
 	return (1);
-}
+} */
 
-
+/*
 char **tokenize(char *str)
 {
 	int buffer, i;
@@ -86,8 +86,8 @@ char **tokenize(char *str)
 	}
 	token[i] = NULL;
 	return (token);
-}
-
+} */
+/*
 char *_getline(void)
 {
 	char *str;
@@ -101,7 +101,7 @@ char *_getline(void)
 		exit(0);
 	}
 	return (str);
-}
+} */
 
 int main(int arg, char *argv[])
 {
@@ -133,7 +133,7 @@ int main(int arg, char *argv[])
 	}
 	return (0);
 }
-
+/*
 int builtinchecker(char *str, char **args)
 {
 	if (_strcmp(str, "exit") == 0)
@@ -145,5 +145,5 @@ void exitFunction(int status, char *str, char **args)
 {
 	free(args);
 	free(str);
-	_exit(status);
-}
+	exit(98);
+	}*/

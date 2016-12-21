@@ -31,7 +31,7 @@ char *printenv(char **environ)
         s = environ[0];
         while (s != NULL)
         {
-		_puts("%s\n", s);
+		_puts(s);
                 i++;
                 s = environ[i];
         }
