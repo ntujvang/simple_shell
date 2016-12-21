@@ -27,26 +27,49 @@ int _putchar(char c)
 }
 
 /**
- * _strcat - adding strings together
- * @dest: first string
- * @src: second string
- * Return: the string
+ * _strcat - appends strings
+ * @dest: destination to append
+ * @src: what to append
+ * Return: pointer to dest
  */
+
 char *_strcat(char *dest, char *src)
 {
 	int i, j;
-
-	i = 0;
-	while (dest[i] != '\0')
+	for (i = 0; dest[i] != '\0'; i++)
 	{
-		i++;
-		j = i;
 	}
+	j = 0;
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		j++;
+		i++;
+	}
+	i++;
+	dest[i] = '\0';
+	return (dest);
+}
+ /**
+ * _strcpy - copies an entire string to a buffer
+ * @src: source string to copy
+ * @dest: buffer to copy string into
+ * Return: returns pointer to copied string
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+	char *retval;
+
 	i = 0;
 	while (src[i] != '\0')
 	{
-		dest[j] = src[i];
+		dest[i] = src[i];
 		i++;
-		j++;
 	}
+	dest[i] = src[i];
+
+	retval = dest;
+
+	return (retval);
 }
