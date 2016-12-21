@@ -4,7 +4,7 @@ char *_getline(void)
 {
         char *str;
         size_t buffer;
-	size_t hold;
+	int hold;
         buffer = 0;
         hold = getline(&str, &buffer, stdin);
 	if (hold == EOF)
