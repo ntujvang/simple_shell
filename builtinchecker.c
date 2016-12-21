@@ -7,7 +7,7 @@ int builtinchecker(char *str, char **args)
         return (0);
 }
 
-void exitFunction(int status, char *str, char **args)
+void exitFunction(char *str, char **args)
 {
         free(args);
         free(str);
