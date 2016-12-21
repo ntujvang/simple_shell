@@ -10,7 +10,7 @@ int check_me(char *buffer, cmd_finder *h, char **args)
                 if (access(buffer, X_OK) == 0)
                 {
                         i = execute(buffer, args);
-                        return (1);
+                        return (i);
                 }
                 return (0);
         }
@@ -21,8 +21,8 @@ int check_me(char *buffer, cmd_finder *h, char **args)
         {
                 /* gotta change these str functions */
                 _strcpy(temp, h->str);
-                strcat(temp, "/");
-                strcat(temp, buffer);
+                _strcat(temp, "/");
+                _strcat(temp, buffer);
                 if (access(temp, X_OK) == 0)
                 {
                         i = execute(temp, args);
