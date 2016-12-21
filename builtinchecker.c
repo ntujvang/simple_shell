@@ -3,7 +3,7 @@
 int builtinchecker(char *str, char **args)
 {
         if (_strcmp(str, "exit") == 0)
-                exitFunction(0, str, args);
+                exitFunction(str, args);
         return (0);
 }
 
