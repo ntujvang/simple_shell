@@ -2,7 +2,7 @@
 /**
  * check_me - function to find commands
  * @buffer: the string going in
- * @h: linked list of PATH
+ * @h: link list
  * @args: arg looking for
  * Return: 1 for infinite loop
  */
@@ -37,7 +37,5 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 		h = h->next;
 	}
 	free(temp);
-	if (h == NULL)
-		return (0);
 	return (1);
 }
