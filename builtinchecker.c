@@ -3,6 +3,7 @@
  * builtinchecker - function for checking built ins
  * @str: string going in
  * @args: the argument we want
+ * @head: linked list
  * Return: 0
  */
 int builtinchecker(char *str, char **args, cmd_finder *head)
@@ -15,6 +16,7 @@ int builtinchecker(char *str, char **args, cmd_finder *head)
  * exitFunction - function to exit
  * @str: the string going in
  * @args: the argument we want
+ * @head: linked list
  * Return: 0
  */
 void exitFunction(char *str, char **args, cmd_finder *head)
