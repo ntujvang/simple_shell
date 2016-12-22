@@ -24,5 +24,5 @@ void exitFunction(char *str, char **args, cmd_finder *head)
 	_free(head);
 	free(args);
 	free(str);
-	exit(98);
+	exit(0);
 }
