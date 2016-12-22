@@ -34,15 +34,12 @@ int main(__attribute__ ((unused)) int arg,
 		args = tokenize(str);
 		/* this seems to be neccessary in order to keep */
 		/* the loop running */
-		status = builtinchecker(str, args);
+		status = builtinchecker(str, args, head);
 		if (status == 0)
 			status = check_me(str, head, args);
 		if (status == 0)
 			_puts("Command not found\n");
 		free(args);
 	}
-	printf("%s\n", head->str);
-	free(str);
-	_free(head);
 	return (0);
 }
