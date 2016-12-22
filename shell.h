@@ -16,7 +16,6 @@ typedef struct commands
 	char *str;
 	struct commands *next;
 } cmd_finder;
-ssize_t getline(char **lineptr, size_t *n, ...);
 int execute(const char *command, char **args);
 int check_me(char *buffer, cmd_finder *h, char **args);
 char **tokenize(char *str);
