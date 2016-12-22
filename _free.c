@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * free_listint - free me!!
+ * _free - free me!!
  * @head: pointer to the list
  * Return: void
  */
