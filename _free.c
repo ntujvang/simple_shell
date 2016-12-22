@@ -14,4 +14,5 @@ void _free(cmd_finder *head)
 		head = head->next;
 		free(tmp);
 	}
+	free(head);
 }

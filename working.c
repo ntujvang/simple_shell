@@ -26,6 +26,7 @@ int main(__attribute__ ((unused)) int arg,
 		hold = getline(&str, &buffer, stdin);
 		if (hold == EOF)
 		{
+			_free(head);
 			free(str);
 			_puts("EOF\n");
 			exit(98);
@@ -39,8 +40,8 @@ int main(__attribute__ ((unused)) int arg,
 		if (status == 0)
 			_puts("Command not found\n");
 		free(args);
-		free(str);
-		_free(head);
 	}
+	free(str);
+	_free(head);
 	return (0);
 }
