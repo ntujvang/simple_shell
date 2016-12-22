@@ -28,7 +28,7 @@ int main(__attribute__ ((unused)) int arg,
 		{
 			free(str);
 			_free(head);
-			_puts("EOF\n");
+			_puts("\n");
 			exit(98);
 		}
 		args = tokenize(str);
