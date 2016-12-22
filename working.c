@@ -10,19 +10,26 @@ int main(__attribute__ ((unused)) int arg,
 {
 	char *str;
 	char **args;
-	int status;
+	int status, hold;
 	cmd_finder *head;
+	size_t buffer;
 
 	head = NULL;
 	link_lister(&head);
-
+	buffer = 0;
 	while (1)
 	{
 		status = 0;
 		_puts("Conch: ");
 		/* created this thing it's own function because of */
 		/*   data type errors */
-		str = _getline();
+		hold = getline(&str, &buffer, stdin);
+		if (hold == EOF)
+		{
+			free(str);
+			_puts("EOF\n");
+			exit(98);
+		}
 		args = tokenize(str);
 		/* this seems to be neccessary in order to keep */
 		/* the loop running */
@@ -33,6 +40,7 @@ int main(__attribute__ ((unused)) int arg,
 			_puts("Command not found\n");
 		free(args);
 		free(str);
+		_free(head);
 	}
 	return (0);
 }

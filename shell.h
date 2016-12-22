@@ -32,4 +32,5 @@ int builtinchecker(char *str, char **args);
 void exitFunction(char *str, char **args);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
+void _free(cmd_finder *head);
 #endif
