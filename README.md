@@ -16,6 +16,10 @@ Or:
 
 `ls`
 
+To print enviroment:
+
+`env`
+
 To Exit:
 
 `exit`
