@@ -13,8 +13,6 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 
 	if (buffer[0] == '\n')
 	{
-		free(args);
-		free(buffer);
 		return (1);
 	}
 	if (buffer[0] == '/')
@@ -41,5 +39,10 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 		h = h->next;
 	}
 	free(temp);
+	if (h == NULL)
+	{
+		perror("Error");
+		return (1);
+	}
 	return (1);
 }
