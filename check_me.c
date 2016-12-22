@@ -12,7 +12,11 @@ int check_me(char *buffer, cmd_finder *h, char **args)
 	int i;
 
 	if (buffer[0] == '\n')
+	{
+		free(args);
+		free(buffer);
 		return (1);
+	}
 	if (buffer[0] == '/')
 	{
 		if (access(buffer, X_OK) == 0)
