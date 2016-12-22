@@ -10,15 +10,15 @@ Conch is a simple implementation of a shell in C.
 
 Run a built-in:
 
-\\\ /bin/ls \\\
+```/bin/ls```
 
 Or:
 
-\\\ ls \\\
+```ls```
 
 To Exit:
 
-\\\ exit \\\
+```exit```
 
 ## Authors
 **Samantha Scislowicz**
