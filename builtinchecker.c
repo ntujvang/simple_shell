@@ -8,7 +8,7 @@
  */
 int builtinchecker(char *str, char **args, cmd_finder *head)
 {
-	if (_strcmp(str, "exit") == 0)
+	if (strcmp(str, "exit") == 0)
 		exitFunction(str, args, head);
 	return (0);
 }
