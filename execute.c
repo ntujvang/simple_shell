@@ -7,7 +7,7 @@
  */
 int execute(const char *command, char **args)
 {
-	pid_t child;
+	int child;
 	int status;
 
 	if (args[0] == NULL)
